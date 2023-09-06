@@ -23,8 +23,9 @@
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
 if (file_exists($composer_autoload)) {
     require_once $composer_autoload;
-    if (class_exists('Timber')) {
-        $timber = new Timber\Timber();
+    if (!class_exists('Timber')) {
+        // $timber = new Timber\Timber();
+        Timber\Timber::init();
     }
 }
 
@@ -47,7 +48,7 @@ if (!class_exists('Timber')) {
     return;
 }
 
-Timber::$dirname = ['dist/templates', 'dist'];
+Timber::$dirname = ['src/templates', 'dist'];
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -87,12 +88,12 @@ class StarterSite extends Timber\Site
      */
     public function add_to_context($context)
     {
-        $context['foo'] = 'bar';
-        $context['stuff'] = 'I am a value set in your functions.php file';
-        $context['notes'] =
-            'These values are available everytime you call Timber::context();';
-        $context['menu'] = new Timber\Menu();
         $context['site'] = $this;
+        // $context['footer_menu'] = Timber::get_menu('Footer');
+        // $context['primary_menu'] = Timber::get_menu('Primary menu');
+        // $context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
+        // $context['dynamic_footer'] = Timber::get_widgets('after-post');
+        // $context['footer_form'] = Timber::get_widgets('footer');
         return $context;
     }
 
@@ -143,6 +144,19 @@ class StarterSite extends Timber\Site
         //]);
 
         add_theme_support('menus');
+
+        /*
+         * Add custom logo support
+         */
+
+         $defaults = array(
+            'height'               => 53,
+            'width'                => 159,
+            'flex-height'          => true,
+            'flex-width'           => true,
+        );
+
+        add_theme_support('custom-logo', $defaults);
     }
 
     /** This Would return 'foo bar!'.
@@ -162,7 +176,7 @@ class StarterSite extends Timber\Site
     public function add_to_twig($twig)
     {
         $twig->addExtension(new Twig\Extension\StringLoaderExtension());
-        $twig->addFilter(new Twig\TwigFilter('myfoo', [$this, 'myfoo']));
+        // $twig->addFilter(new Twig\TwigFilter('myfoo', [$this, 'myfoo']));
         return $twig;
     }
 

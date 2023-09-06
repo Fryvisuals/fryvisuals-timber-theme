@@ -15,7 +15,7 @@
     ],
     "require": {
         "palmiak/timber-acf-wp-blocks": "^1.15",
-        "timber/timber": "^1.22"
+        "timber/timber": "2.0.0-rc.1"
     },
     "config": {
         "allow-plugins": {

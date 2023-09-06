@@ -1,0 +1,39 @@
+// colors
+@mixin cssVars() {
+    --primary-color: #005cb9;
+    --secondary-color: #ffffff;
+    --dark-background: #414042;
+    --light-grey: #dcddde;
+    --black: #000000;
+    --dark-grey: #939598;
+    --opaque-grey: rgba(220, 221, 222, 0.25);
+}
+
+:root {
+    @include cssVars();
+}
+
+// breakpoints
+$mobile: 600px;
+$tablet: 768px;
+$small: 1024px;
+$desktop: 1280px;
+$large: 1600px;
+
+//slick slider variables
+$slick-font-path: "~slick-carousel/slick/fonts/";
+$slick-loader-path: "~slick-carousel/slick/";
+
+$slick-font-family: 'slick' !default;
+$slick-arrow-color: black !default;
+
+$slick-dot-size: 1.25rem;
+$slick-dot-color: var(--primary-color);
+
+.slick-list.draggable {
+    cursor: grab;
+}
+
+.slick-arrow, .image-gallery__thumbnails .slick-slide {
+    cursor: pointer;
+}
