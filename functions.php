@@ -24,7 +24,6 @@ $composer_autoload = __DIR__ . '/vendor/autoload.php';
 if (file_exists($composer_autoload)) {
     require_once $composer_autoload;
     if (!class_exists('Timber')) {
-        // $timber = new Timber\Timber();
         Timber\Timber::init();
     }
 }
@@ -90,8 +89,8 @@ class StarterSite extends Timber\Site
     {
         $context['site'] = $this;
         // $context['footer_menu'] = Timber::get_menu('Footer');
-        // $context['primary_menu'] = Timber::get_menu('Primary menu');
-        // $context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
+        $context['primary_menu'] = Timber::get_menu('Primary menu');
+        $context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
         // $context['dynamic_footer'] = Timber::get_widgets('after-post');
         // $context['footer_form'] = Timber::get_widgets('footer');
         return $context;
