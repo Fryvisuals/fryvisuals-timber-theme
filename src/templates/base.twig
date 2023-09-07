@@ -23,16 +23,16 @@
                 {% include "menu.twig" with {'items': menu.get_items} %}
             </nav><!-- #nav -->
         </div>
+
     {% endblock %}
 </header>
 
 <section id="content" role="main" class="content-wrapper">
-    {% if title %}<h1>{{ title }}</h1>{% endif %}
-    <div class="wrapper {{ sidebar_class }}">
+    {% if sidebar %}<div class="wrapper {{ sidebar_class }}">{% endif %}
         {% block content %}
             Sorry, no content
         {% endblock %}
-    </div>
+    {% if sidebar %}</div>{% endif %}
     {% if sidebar %}
         <aside class="layout-sidebar">
             {{ sidebar }}
