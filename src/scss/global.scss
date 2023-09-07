@@ -1,16 +1,17 @@
 // colors
-@mixin cssVars() {
-    --primary-color: #bf1920;
-    --secondary-color: #ffffff;
-    --dark-background: #414042;
-    --light-grey: #dcddde;
-    --black: #000000;
-    --dark-grey: #939598;
-    --opaque-grey: rgba(220, 221, 222, 0.25);
+@mixin cssVars {
+  --primary-color: #bf1920;
+  --secondary-color: #ffffff;
+  --dark-main-background: #111111;
+  --dark-background: #414042;
+  --light-grey: #dcddde;
+  --black: #000000;
+  --dark-grey: #939598;
+  --opaque-grey: rgba(220, 221, 222, 0.25);
 }
 
 :root {
-    @include cssVars();
+  @include cssVars;
 }
 
 // breakpoints
@@ -31,64 +32,67 @@ $slick-dot-size: 1.25rem;
 $slick-dot-color: var(--primary-color);
 
 .slick-list.draggable {
-    cursor: grab;
+  cursor: grab;
 }
 
 .slick-arrow,
 .image-gallery__thumbnails .slick-slide {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 html {
-    overflow-x: hidden;
-    font-size: 14px;
+  overflow-x: hidden;
+  font-size: 14px;
+  background-color: var(--dark-main-background);
 
-    &:root {
-        --offset: 5.125rem;
-        --top: 67%;
-        --container: min(91rem, 80vw);
-        --reverseMargin: calc((100vw - var(--container)) * -0.5);
-        --offsetPadding: calc(var(--reverseMargin) * -1);
-
-        @media screen and (max-width: $small) {
-            --offset: 3rem;
-            --container: calc(100vw - 8rem);
-        }
-
-        @media screen and (max-width: $tablet) {
-            --top: 70vw;
-            // --container: calc(#{$tablet} - 5rem);
-        }
-
-        @media screen and (max-width: $mobile) {
-            --container: calc(100vw - 2.5rem);
-        }
-    }
-
-    @media screen and (min-width: $large) {
-        font-size: 16px;
-    }
-
-    @media screen and (max-width: $desktop) {
-        font-size: 13px;
-    }
+  &:root {
+    --offset: 5.125rem;
+    --top: 67%;
+    --container: min(91rem, 80vw);
+    --reverseMargin: calc((100vw - var(--container)) * -0.5);
+    --offsetPadding: calc(var(--reverseMargin) * -1);
 
     @media screen and (max-width: $small) {
-        font-size: 11px;
+      --offset: 3rem;
+      --container: calc(100vw - 8rem);
     }
 
     @media screen and (max-width: $tablet) {
-        font-size: 1.75vw;
+      --top: 70vw;
+
+      // --container: calc(#{$tablet} - 5rem);
     }
 
     @media screen and (max-width: $mobile) {
-        font-size: 2.75vw;
+      --container: calc(100vw - 2.5rem);
     }
+  }
+
+  @media screen and (min-width: $large) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: $desktop) {
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: 11px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    font-size: 1.75vw;
+  }
+
+  @media screen and (max-width: $mobile) {
+    font-size: 2.75vw;
+  }
 }
 
 body {
-    overflow-x: hidden;
-    font-size: 1rem;
+  overflow-x: hidden;
+  font-size: 1rem;
+  background-color: var(--dark-main-background);
 }
 
 h1,
@@ -101,13 +105,13 @@ h6,
 a,
 button,
 blockquote {
-    // font-family: "corporate-s";
-    color: black;
+  // font-family: "corporate-s";
+  color: white;
 }
 
 a,
 a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 p,
@@ -118,260 +122,265 @@ ul,
 li,
 body,
 html {
-    font-family: "roboto";
-    color: black;
+  font-family: "roboto";
+  color: white;
 }
+
 // Container width
 
 h1 {
-    font-size: 4.5rem;
-    line-height: 1;
-    font-weight: 300;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 300;
 }
 
 h2 {
-    font-size: 4rem;
-    line-height: 1;
-    font-weight: 300;
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 300;
 
-    @media screen and (max-width: $small) {
-        font-size: 3rem;
-    }
+  @media screen and (max-width: $small) {
+    font-size: 3rem;
+  }
 }
 
 h3 {
-    font-size: 2.5rem;
-    font-weight: 300;
+  font-size: 2.5rem;
+  font-weight: 300;
 
-    @media screen and (max-width: $small) {
-        font-size: 2.25rem;
-    }
+  @media screen and (max-width: $small) {
+    font-size: 2.25rem;
+  }
 
-    @media screen and (max-width: $mobile) {
-        font-size: 2.25rem;
-    }
+  @media screen and (max-width: $mobile) {
+    font-size: 2.25rem;
+  }
 }
 
 h4 {
-    font-size: 2.25rem;
-    font-weight: 300;
+  font-size: 2.25rem;
+  font-weight: 300;
 
-    @media screen and (max-width: $small) {
-        font-size: 2rem;
-    }
+  @media screen and (max-width: $small) {
+    font-size: 2rem;
+  }
 }
 
 h5 {
-    font-size: 2rem;
-    font-weight: 300;
+  font-size: 2rem;
+  font-weight: 300;
 
-    @media screen and (max-width: $small) {
-        font-size: 2rem;
-    }
-    @media screen and (max-width: $mobile) {
-        font-size: 2rem;
-    }
+  @media screen and (max-width: $small) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: $mobile) {
+    font-size: 2rem;
+  }
 }
 
 p,
 li {
-    font-size: 1.375rem;
+  font-size: 1.375rem;
 }
 
 sup {
-    font-size: 50%;
+  font-size: 50%;
 }
 
 .wp-block-button,
 .button {
-    a,
-    .wp-block-button__link {
-        border-radius: 0;
-        background-color: var(--primary-color);
-        border: 2px solid var(--primary-color);
-        padding: 0.5rem 1.75rem;
-        font-size: 1.125rem;
-        color: var(--secondary-color);
+  a,
+  .wp-block-button__link {
+    border-radius: 0;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1.75rem;
+    font-size: 1.125rem;
+    color: var(--secondary-color);
 
-        &:hover {
-            color: var(--primary-color);
-            background-color: transparent;
-            text-decoration: none;
-        }
+    &:hover {
+      color: var(--primary-color);
+      background-color: transparent;
+      text-decoration: none;
     }
+  }
 
-    a::after,
-    .wp-block-button__link:after {
-        content: "\0041";
-        padding-left: 0.5rem;
-        font-family: "group600-arrow";
-        position: relative;
-        top: 0.15rem;
-    }
+  a::after,
+  .wp-block-button__link:after {
+    content: "\0041";
+    padding-left: 0.5rem;
+    font-family: "group600-arrow";
+    position: relative;
+    top: 0.15rem;
+  }
 }
 
 .is-style-outline > .wp-block-button__link:not(.has-text-color) {
-    background-color: transparent;
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+  background-color: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 
-    &:hover {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-        color: var(--secondary-color);
-    }
+  &:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
 }
 
 button,
 button:focus {
-    outline: none;
-    background: transparent;
-    border: none;
+  outline: none;
+  background: transparent;
+  border: none;
 }
 
 .dynamic-footer {
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
-@mixin nativeAlignments() {
-    > h1,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6,
-    > p,
-    > ul,
-    > blockquote,
-    &.alignwide {
-        max-width: var(--container);
-        margin-left: auto;
-        margin-right: auto;
+@mixin nativeAlignments {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6,
+  > p,
+  > ul,
+  > blockquote,
+  &.alignwide {
+    max-width: var(--container);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    + p {
+      margin-top: 1rem;
     }
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        + p {
-            margin-top: 1rem;
-        }
-    }
+  ul:not(.slick-dots) {
+    padding-inline-start: 20px;
+    margin-left: 0.75rem;
+  }
 
-    ul:not(.slick-dots) {
-        padding-inline-start: 20px;
-        margin-left: 0.75rem;
-    }
+  ul li::marker {
+    color: var(--primary-color);
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
 
-    ul li::marker {
-        color: var(--primary-color);
-        display: inline-block;
-        margin-right: 0.5rem;
-    }
-    // > :where(.wp-block) {
-    > .prpl-600__5050 {
-        max-width: var(--container);
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+  // > :where(.wp-block) {
+  > .prpl-600__5050 {
+    max-width: var(--container);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 
-        @media screen and (max-width: $mobile) {
-            padding-top: 0;
-        }
-
-        .wp-block-media-text__content {
-            padding-top: 2rem;
-
-            h2 {
-                margin-bottom: 2rem;
-            }
-
-            @media screen and (max-width: $tablet) {
-                padding-top: 5rem;
-                padding-bottom: 5rem;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-        }
-
-        .wp-block-media-text__media {
-            img {
-                object-fit: contain;
-            }
-        }
-
-        .wp-block-media-text.is-image-fill {
-            .wp-block-media-text__media {
-                aspect-ratio: 1/1;
-            }
-        }
-
-        > svg {
-            content: "";
-            position: absolute;
-            bottom: 50%;
-            left: 50%;
-            width: 45vw;
-            height: auto;
-            z-index: -1;
-            transform: translateX(-50%) translateY(50%);
-
-            @media screen and (max-width: $mobile) {
-                display: none;
-            }
-        }
-        // @include half-half-pattern();
+    @media screen and (max-width: $mobile) {
+      padding-top: 0;
     }
 
     .wp-block-media-text__content {
-        @media screen and (max-width: $tablet) {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
+      padding-top: 2rem;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+
+      @media screen and (max-width: $tablet) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
     }
 
-    > .wp-block-group {
-        max-width: var(--container);
-
-        @media screen and (min-width: $tablet) {
-            max-width: 60rem;
-
-            &.alignwide {
-                max-width: calc(100% - 4rem);
-            }
-        }
-
-        margin: 3rem auto;
+    .wp-block-media-text__media {
+      img {
+        object-fit: contain;
+      }
     }
 
-    .is-style-outline .wp-block-button__link {
-        color: var(--primary-color);
-        padding: 0.5rem 1.75rem;
-
-        &:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
+    .wp-block-media-text.is-image-fill {
+      .wp-block-media-text__media {
+        aspect-ratio: 1/1;
+      }
     }
+
+    > svg {
+      content: "";
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      width: 45vw;
+      height: auto;
+      z-index: -1;
+      transform: translateX(-50%) translateY(50%);
+
+      @media screen and (max-width: $mobile) {
+        display: none;
+      }
+    }
+
+    // @include half-half-pattern();
+ 
+  }
+
+  .wp-block-media-text__content {
+    @media screen and (max-width: $tablet) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  > .wp-block-group {
+    max-width: var(--container);
+
+    @media screen and (min-width: $tablet) {
+      max-width: 60rem;
+
+      &.alignwide {
+        max-width: calc(100% - 4rem);
+      }
+    }
+
+    margin: 3rem auto;
+  }
+
+  .is-style-outline .wp-block-button__link {
+    color: var(--primary-color);
+    padding: 0.5rem 1.75rem;
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+  }
 }
 
 .article-body {
-    @include nativeAlignments();
+  @include nativeAlignments;
 
-    &.embed {
-        max-width: calc(100vw - 2rem);
-        margin: 5rem auto;
+  &.embed {
+    max-width: calc(100vw - 2rem);
+    margin: 5rem auto;
 
-        @media screen and (min-width: $tablet) {
-            max-width: 60rem;
-        }
+    @media screen and (min-width: $tablet) {
+      max-width: 60rem;
     }
+  }
 }

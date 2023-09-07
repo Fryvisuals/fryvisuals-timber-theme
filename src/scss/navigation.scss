@@ -121,7 +121,7 @@
                     font-size: 1.125rem;
                     position: relative;
                     padding: 1rem 0.9375rem;
-                    color: black;
+                    color: white;
 
                     @include hoverMe();
                 }
@@ -146,7 +146,7 @@
                         top: 100%;
                         left: var(--reverseMargin);
                         right: var(--reverseMargin);
-                        background-color: var(--secondary-color);
+                        background-color: var(--dark-main-background);
                         z-index: 2;
                         width: auto;
                         display: flex;
@@ -224,7 +224,7 @@
 
             *:hover {
                 a {
-                    color: var(--black);
+                    color: var(--primary-color);
                 }
             }
         }
@@ -308,7 +308,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--secondary-color);
+            background-color: var(--dark-main-background);
             z-index: 2;
             align-items: center;
             width: 100%;
