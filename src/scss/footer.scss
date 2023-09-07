@@ -1,0 +1,281 @@
+#footer {
+  background-color: var(--black);
+}
+
+.footer {
+  &__container {
+    max-width: var(--container);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+
+    padding: 5rem 0;
+
+    *:not(input) {
+      font-size: 1rem;
+      color: var(--secondary-color);
+    }
+  }
+
+  &__information {
+    &__contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5rem 5rem 5.5rem 0;
+      justify-content: space-between;
+
+      address {
+        flex: 1 0 100%;
+        max-width: 50%;
+      }
+
+     a:hover {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__logo-section {
+    display: flex;
+    align-items: center;
+
+    a {
+      height: 100%;
+      &:not(:last-child) {
+        padding-right: 1.5rem;
+        border-right: 1px solid var(--secondary-color);
+      }
+
+      &:not(:first-child) {
+        padding-left: 1.5rem;
+      }
+      img {
+        height: 2.875rem;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+
+    .page-links {
+      align-self: flex-end;
+      &__list {
+        display: flex;
+        list-style: none;
+        padding: 0 9.25rem 0 0;
+        margin: 0;
+      }
+
+      &__link a:hover {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      &__link:last-child {
+        border: none;
+      }
+
+      &__link {
+        padding: 0 0.5rem;
+        border-right: 1px solid var(--secondary-color);
+        flex: 1 0 auto;
+
+        a {
+          display: block;
+        }
+      }
+    }
+
+    .social-links {
+
+      flex: 1 0 auto;
+      margin-right: 1rem;
+
+      &__list {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+
+      &__link {
+        padding-right: 0.625rem;
+      }
+    }
+  }
+
+  &__contact {
+    height: 100%;
+    list-style: none;
+    align-self: center;
+    padding: 3.5rem 0 0 4rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: var(--secondary-color);
+      height: 127%;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    .contact {
+      &__heading {
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+
+      &__subheading {
+        padding-bottom: 2rem;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    input {
+      height: 3.125rem;
+    }
+
+    .ctct-form-field-email {
+      width: 64%;
+
+      .ctct-email {
+        width: 100%;
+      }
+    }
+
+    // @include blueBackgroundButton;
+
+    .ctct-form-field-submit {
+      margin-left: 1.75rem;
+      .ctct-submit {
+        padding: 0.75rem 3rem 0.75rem 2rem;
+        font-size: 0.875rem;
+      }
+
+      &::after {
+        content: '→';
+        position: relative;
+        left: -2rem;
+      }
+
+      &:hover::after {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    &__logo-section {
+      a {
+        img {
+          height: 2rem;
+        }
+      }
+    }
+
+    &__information {
+      &__contact-info {
+        padding: 3.5rem 0 3rem;
+        flex-direction: column;
+      }
+    }
+
+    &__links {
+      display: block;
+
+      .page-links__list {
+        padding: 2rem 0 0;
+      }
+    }
+
+    &__contact {
+      &::before {
+        height: 167%;
+      }
+
+      form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .ctct-form-field-email {
+        width: 100%;
+      }
+
+      .ctct-form-field-submit {
+        margin: 0;
+      }
+    }
+
+    &__contact__button {
+      margin: 1.75rem 0 0 0;
+      max-width: 9rem;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    &__container {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'Top' 'Middle' 'Bottom';
+    }
+
+    &__logo-section {
+      a {
+        img {
+          height: 2.875rem;
+        }
+      }
+    }
+
+    &__information {
+      grid-area: Top;
+
+      &__contact-info {
+        padding: 3.125rem 0;
+        flex-direction: column;
+
+        .address {
+          margin-bottom: 2.125rem;
+        }
+      }
+    }
+
+    &__contact {
+      &::before {
+        content: none;
+      }
+
+      margin-top: 3rem;
+      grid-area: Middle;
+      padding: 4.5rem 0;
+      border-left: none;
+      border-top: 2px solid var(--secondary-color);
+    }
+
+    &__links {
+      grid-area: Bottom;
+      border-right: none;
+      display: flex;
+      flex-direction: column;
+
+      .page-links {
+        align-self: flex-start;
+
+        &__list {
+          padding-top: 3.125rem;
+        }
+      }
+    }
+  }
+}
