@@ -1,10 +1,38 @@
 {% if primary_menu %}
-    <ul>
-        {% for item in items %}
-            <li class="{{ item.classes | join(' ') }}">
-                <a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-                {% include "menu.twig" with {'items': item.children} %}
+    <div class="menu-buttons">
+    {% if primary_menu.button_link %}
+
+        <a href="{{ primary_menu.button_link.url }}" class="menu-buttons__information">{{ primary_menu.button_link.title}}</a>
+
+    {% endif %}
+
+        {% if primary_menu.phone != '' %}
+            <a class="menu-buttons__phone"href="tel:{{ primary_menu.phone }}">{{ primary_menu.phone }}</a>
+        {% endif %}
+
+        <form method="GET" action="{{ site.url }}" class="menu-buttons__search-field" hidden>
+            <input type="search" name="s" />
+        </form>
+        <button class="menu-buttons__search">{{ source('/src/assets/searchIcon.svg')}}</button>
+    </div>
+    <ul class="menu-items" role="menubar">
+        {% for item in primary_menu.items %}
+            <li class="{{ item.classes | join(' ') }}" role="menu" aria-haspopup="{{ item.children ? 'true' : 'false' }}" >
+                <a target="{{ item.target }}" href="{{ item.link }}" class="menu-item__link">{{ item.title }} </a>
+                {% if item.children %}
+                <div class="nav-drop">
+                    <ul class="nav-drop__list">
+                        {% for child in item.children %}
+                            <li class="nav-drop__item">
+                                <a  class="nav-drop__link"href="{{ child.link }}"><h5>{{ child.title }}</h5></a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {{ source('/src/assets/next-small.svg')}}
+                {% endif %}
             </li>
+
         {% endfor %}
     </ul>
 {% endif %}

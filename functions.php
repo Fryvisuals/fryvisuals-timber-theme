@@ -88,7 +88,7 @@ class StarterSite extends Timber\Site
     public function add_to_context($context)
     {
         $context['site'] = $this;
-        // $context['footer_menu'] = Timber::get_menu('Footer');
+        $context['footer_menu'] = Timber::get_menu('Footer');
         $context['primary_menu'] = Timber::get_menu('Primary menu');
         $context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
         // $context['dynamic_footer'] = Timber::get_widgets('after-post');

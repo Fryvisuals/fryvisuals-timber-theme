@@ -2,8 +2,6 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import $ from 'jquery';
 
-$(document).ready(() => {
-  console.log('Hello word!');
-});
+import { navigation } from './navigation';
 
-// Your scripts here
+navigation();

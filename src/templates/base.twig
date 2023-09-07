@@ -11,11 +11,16 @@
 <header class="header">
     {% block header %}
         <div class="header__wrapper">
-            <h1 class="header-logo" role="banner" style="width: 30rem;">
-                <a class="header-logo-link" href="{{ site.url }}" rel="home" title="{{ site.name }}"><img loading="lazy" src="{{ custom_logo_url }}" class="header-logo-image" /></a>
-            </h1>
-            <nav id="nav-main" class="nav-main" role="navigation">
-                {% include "menu.twig" with {'items': primary_menu.get_items} %}
+            <div class="header-logo" role="banner">
+                <a class="header-logo-link" href="{{ site.url }}" rel="home"><img loading="lazy" src="{{ custom_logo_url }}" class="header-logo-image" /></a>
+            </div>
+            <button class="hamburger" type="button" data-toggle="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-main" class="{{ primary_menu.slug }}" role="navigation">
+                {% include "menu.twig" with {'items': menu.get_items} %}
             </nav><!-- #nav -->
         </div>
     {% endblock %}
