@@ -13,6 +13,7 @@ module.exports = (env, argv) => {
       twig: './src/twig.js',
       style: './src/scss/style.scss',
       script: './src/js/script.js',
+      editor: './src/scss/editor.scss',
     },
     output: {
       filename: '[name].js',

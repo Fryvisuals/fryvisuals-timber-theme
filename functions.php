@@ -207,3 +207,14 @@ class StarterSite extends Timber\Site
 }
 
 new StarterSite();
+
+// Block Editor Scripts
+add_action('enqueue_block_editor_assets', function () {
+    // wp_enqueue_script('600-gutenberg-filters', get_template_directory_uri() . '/dist/blockMod.js', ['wp-edit-post']);
+
+    wp_enqueue_style(
+        'editor-style',
+        get_template_directory_uri() . '/dist/editor.css',
+        [],
+    );
+});
