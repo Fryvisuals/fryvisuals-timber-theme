@@ -218,3 +218,33 @@ add_action('enqueue_block_editor_assets', function () {
         [],
     );
 });
+
+
+
+// Register Custom ACF Blocks
+add_action('acf/init', 'my_acf_init_block_types');
+
+function my_acf_init_block_types()
+{
+
+    if (function_exists('acf_register_block_type')) {
+
+        acf_register_block_type(array(
+            'name'              => 'home_hero',
+            'title'             => __('Home Hero'),
+            'description'       => __('Home page hero section'),
+            'render_template'   => 'template-parts/blocks/home-hero/home-hero.php',
+            'category'          => 'media',
+            'icon'              => 'admin-home',
+            'keywords'          => array('hero', 'home', 'media'),
+            'post_types'        => array('page'),
+            'parent'            => array('core/post-content'),
+            'supports' => array(
+                'mode' => false,
+                'jsx' => true,
+                'align' => false
+            )
+        ));
+        
+    }
+}

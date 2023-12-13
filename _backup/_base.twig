@@ -41,11 +41,11 @@
 </section>
 
 <section id="content" role="main" class="content-wrapper">
-    <div class="wrapper {{ sidebar_class }}">
+    {% if sidebar %}<div class="wrapper {{ sidebar_class }}">{% endif %}
         {% block content %}
             Sorry, no content
         {% endblock %}
-    </div>
+    {% if sidebar %}</div>{% endif %}
     {% if sidebar %}
         <aside class="layout-sidebar">
             {{ sidebar }}
